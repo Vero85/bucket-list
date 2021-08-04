@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{# on vient charger le template #}
+{# AUCUN CODE HTML EN DEHORS DES BLOCKS TWIG #}
+
+{% block titre%} Home | {{parent() }} {% endblock %}
+{# avec parent je récupère le contenu du blc parent #}
+
+
+{% block body %}
+    <h1>HOME</h1>
+<br><br><br><br><br><br><br><br>
+
+
+<!--le lien vers ajouter-->
+<a href="{{ path('wish_ajouter') }}" class="btn btn-success">Ajouter</a>
+
+<!--comment envoyer l'id du wish avec le path : je choisis ici l'id 10 comme variable et je cree un bouton rouge danger-->
+{% set myId = 10 %}
+<a href="{{ path('wish_enlever',{ id : myId}) }}" class="btn btn-danger">Enlever</a>
+<br><br><br><br><br>
+{% endblock %}

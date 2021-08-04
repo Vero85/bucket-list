@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{# on vient charger le template #}
+{# AUCUN CODE HTML EN DEHORS DES BLOCKS TWIG #}
+
+{% block titre%} About us | {{parent() }} {% endblock %}
+{# avec parent je récupère le contenu du blc parent #}
+
+
+{% block central%}
+    <h1>about us</h1>
+{% endblock %}
