@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{# on vient charger le template #}
+{# AUCUN CODE HTML EN DEHORS DES BLOCKS TWIG #}
+
+{% block titre %} Ajouter un voeux | {{parent() }} {% endblock %}
+{# avec parent je récupère le contenu du blc parent #}
+
+
+
+{% block body %}
+    <h1>Veuillez saisir votre voeux !</h1>
+
+
+     {{form_start(formWish)}}
+     {{form_widget(formWish)}}
+        <button class="btn btn-primary" type submit>Ajouter</button>"
+     {{form_end(formWish)}}
+
+    
+
+{% endblock %}

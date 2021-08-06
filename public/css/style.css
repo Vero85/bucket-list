@@ -6,7 +6,8 @@
 
 h1{
     text-align: center;
-    text-decoration: underline;
+    padding-top: 20px;
+    color: palevioletred;
 }
 
 .date{

@@ -10,6 +10,25 @@
     <h1>HOME</h1>
 <br><br><br><br><br><br><br><br>
 
+<table class="table table-striped">
+        <tbody>
+         {% for w in voeux %}
+            <tr>
+                <td>{{w.id}}</td>
+                <td>{{w.title}}</td>
+                <td>{{w.description}}</td>
+                <td>{{w.author}}</td>
+                <td>{{w.ispublished}}</td>
+                <td>{{w.dateCreated|date('d/m/Y')}}</td>
+                <td>
+                <a href="{{path('wish_enlever', {id:w.id}) }}" 
+                class="btn btn-danger">Effacer</a>
+                </td>
+            </tr>
+             {% endfor %}
+        </tbody>
+    </table>
+
 
 <!--le lien vers ajouter-->
 <a href="{{ path('wish_ajouter') }}" class="btn btn-success">Ajouter</a>

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>{% block titre %} My Twig Site {% endblock %}</title>
     <link rel="icon" href="{{ asset('img/favicon.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,46 +18,29 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-5">
      <img class="logo-rose" src="{{asset('img/logo.svg') }}">
-        <a class="navbar-brand" href="{{path('home')}}">My Twig Site</a>
+        <a class="navbar-brand" href="{{path('home')}}">MY BUCKET LIST</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-       
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{path('home')}}">Home</a></li>
-                <li class="nav-item">
-                <a class="nav-link" href="{{path('contact')}}">Contact</a></li>
-                <li class="nav-item">
-                <a class="nav-link" href="{{path('about_us')}}">About Us</a></li>         
-                <li class="nav-item">
-                <a class="nav-link" href="{{path('list')}}">Liste des idées</a></li>          
-            </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{path('home')}}">Home</a></li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="{{path('contact')}}">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{path('about_us')}}">About Us</a></li>         
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{path('wish_ajouter')}}">Ajouter un voeux</a></li>          
+                </ul>
         </div>       
-
-
- 
     </div>
-    </nav>
+</nav>
 
     
 
 
     <div class= "container lorem">
-    {% block body %} Titre ICI {% endblock %}
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsum, saepe repudiandae, temporibus eligendi sint placeat accusantium doloribus quasi dolorum explicabo distinctio beatae earum. Laudantium et eius pariatur accusamus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem vel facilis ducimus, assumenda, minus dolor ut iusto rerum fugit enim obcaecati voluptas quasi unde architecto eius. Necessitatibus quod fugiat hic?
-       Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsum, saepe repudiandae, temporibus eligendi sint placeat accusantium doloribus quasi dolorum explicabo distinctio beatae earum. Laudantium et eius pariatur accusamus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem vel facilis ducimus, assumenda, minus dolor ut iusto rerum fugit enim obcaecati voluptas quasi unde architecto eius. Necessitatibus quod fugiat hic?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsum, saepe repudiandae, temporibus eligendi sint placeat accusantium doloribus quasi dolorum explicabo distinctio beatae earum. Laudantium et eius pariatur accusamus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem vel facilis ducimus, assumenda, minus dolor ut iusto rerum fugit enim obcaecati voluptas quasi unde architecto eius. Necessitatibus quod fugiat hic?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsum, saepe repudiandae, temporibus eligendi sint placeat accusantium doloribus quasi dolorum explicabo distinctio beatae earum. Laudantium et eius pariatur accusamus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem vel facilis ducimus, assumenda, minus dolor ut iusto rerum fugit enim obcaecati voluptas quasi unde architecto eius. Necessitatibus quod fugiat hic?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsum, saepe repudiandae, temporibus eligendi sint placeat accusantium doloribus quasi dolorum explicabo distinctio beatae earum. Laudantium et eius pariatur accusamus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem vel facilis ducimus, assumenda, minus dolor ut iusto rerum fugit enim obcaecati voluptas quasi unde architecto eius. Necessitatibus quod fugiat hic?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem ipsum, saepe repudiandae, temporibus eligendi sint placeat accusantium doloribus quasi dolorum explicabo distinctio beatae earum. Laudantium et eius pariatur accusamus.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem vel facilis ducimus, assumenda, minus dolor ut iusto rerum fugit enim obcaecati voluptas quasi unde architecto eius. Necessitatibus quod fugiat hic?
+    {% block body %} Titre ICI {% endblock %}  
     
-   
    </div>
    
    <!-- Footer-->
@@ -65,7 +49,7 @@
     <p>Nous sommes le : {{"now"|date('d-m-Y')}} </p>
     </div>
     
-    <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; My Twig Site - 2021</p></div>
+    <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; MY BUCKET LIST - 2021</p></div>
 </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

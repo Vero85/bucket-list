@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{# on vient charger le template #}
+{# AUCUN CODE HTML EN DEHORS DES BLOCKS TWIG #}
+
+{% block titre %} Ecrivez-nous ! | {{parent() }} {% endblock %}
+{# avec parent je récupère le contenu du blc parent #}
+
+
+
+{% block body %}
+    <h1>Saisissez votre message !</h1>
+
+
+     {{form_start(formContact)}}
+     {{form_widget(formContact)}}
+        <button class="btn btn-primary" type submit>Ajouter</button>"
+     {{form_end(formContact)}}
+
+    
+
+{% endblock %}
