@@ -2,39 +2,59 @@
 {# on vient charger le template #}
 {# AUCUN CODE HTML EN DEHORS DES BLOCKS TWIG #}
 
-{% block titre%} Home | {{parent() }} {% endblock %}
+	{% block titre%}
+	Home |
+{{parent() }}
+{% endblock %}
 {# avec parent je récupère le contenu du blc parent #}
 
 
-{% block body %}
-    <h1>HOME</h1>
-<br><br><br><br><br><br><br><br>
+	{% block body %}
+		<h1>
+	HOME
+	</h1>
 
-<table class="table table-striped">
-        <tbody>
-         {% for w in voeux %}
-            <tr>
-                <td>{{w.id}}</td>
-                <td>{{w.title}}</td>
-                <td>{{w.description}}</td>
-                <td>{{w.author}}</td>
-                <td>{{w.ispublished}}</td>
-                <td>{{w.dateCreated|date('d/m/Y')}}</td>
-                <td>
-                <a href="{{path('wish_enlever', {id:w.id}) }}" 
-                class="btn btn-danger">Effacer</a>
-                </td>
-            </tr>
-             {% endfor %}
-        </tbody>
-    </table>
+		{% for c in categs %}
+			<h3>
+		{{c.name}}
+		</h3>
 
+			{% for w in c.wishes %}
+				<table class="table table-striped"> <thead>
+					<tr>
+						<th>TITRE</th>
+						<th>DESCRIPTION</th>
+						<th>NOM</th>
+                        <th></th>
+						<th>DATE DE CREATION</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
 
-<!--le lien vers ajouter-->
-<a href="{{ path('wish_ajouter') }}" class="btn btn-success">Ajouter</a>
+					<tr>
+						<td><a href="{{path('detail', {id:w.id})}}">{{w.title}}</a></td>
+						<td>{{w.description}}</td>
+						<td>{{w.author}}</td>
+						<td>{{w.ispublished}}</td>
+						<td>{{w.dateCreated|date('d/m/Y')}}</td>
 
-<!--comment envoyer l'id du wish avec le path : je choisis ici l'id 10 comme variable et je cree un bouton rouge danger-->
-{% set myId = 10 %}
-<a href="{{ path('wish_enlever',{ id : myId}) }}" class="btn btn-danger">Enlever</a>
-<br><br><br><br><br>
+						<td>
+							<a href="{{path('wish_enlever', {id:w.id}) }}" class="btn btn-danger">Effacer</a>
+						</td>
+					</tr>
+
+				</tbody>
+
+			</table>
+		{% endfor %}
+	{% endfor %}
+
+	<!--le lien vers ajouter-->
+	<a href="{{ path('wish_ajouter') }}" class="btn btn-success">Ajouter</a>
+
+	<!--comment envoyer l'id du wish avec le path : je choisis ici l'id 10 comme variable et je cree un bouton rouge danger-->
+	{% set myId = 10 %}
+	<a href="{{ path('wish_enlever',{ id : myId}) }}" class="btn btn-danger">Enlever</a>
+	<br><br><br><br><br>
 {% endblock %}

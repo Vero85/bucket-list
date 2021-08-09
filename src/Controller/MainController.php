@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
 use App\Entity\Wish;
 use App\Form\ContactType;
+use App\Repository\CategoryRepository;
 use App\Repository\WishRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,26 +19,28 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function home(WishRepository $repo): Response
+    public function home(CategoryRepository $repo): Response
     {
-        $wish1 = $repo->findBy([], ['dateCreated' => 'ASC']);
-        return $this->render('projet/home.html.twig', ['voeux' => $wish1]);
+        $categs = $repo->findAll();
+        return $this->render('projet/home.html.twig', ['categs' => $categs]);
     }
 
     /**
      * @Route("/contact", name="contact")
      */
-    public function contact(Request $request): Response
+    public function contact(EntityManagerInterface $em, Request $request): Response
     {
-        $formContact = $this->createForm(ContactType::class);
+
+        $contact = new Contact();
+        $formContact = $this->createForm(ContactType::class, $contact);
 
         $formContact->handleRequest($request);
 
         if ($formContact->isSubmitted() && $formContact->isValid()) {
-            $nom = $formContact->get('nom')->getData();
-            dd($nom);
-            // $em->persist($wish);
-            //$em->flush();
+            //$nom = $formContact->get('nom')->getData();
+            //dd($nom);
+            $em->persist($contact);
+            $em->flush();
 
             return $this->redirectToRoute('home');
         }

@@ -2,10 +2,20 @@
 {# on vient charger le template #}
 {# AUCUN CODE HTML EN DEHORS DES BLOCKS TWIG #}
 
-{% block titre%} Contact | {{parent() }} {% endblock %}
+{% block titre %} Contactez-nous ! | {{parent() }} {% endblock %}
 {# avec parent je récupère le contenu du blc parent #}
 
 
-{% block central%}
-    <h1>Contact</h1>
+
+{% block body %}
+    <h1>Saisissez votre message !</h1>
+
+
+     {{form_start(formContact)}}
+     {{form_widget(formContact)}}
+        <button class="btn btn-primary" type submit>Ajouter</button>"
+     {{form_end(formContact)}}
+
+    
+
 {% endblock %}

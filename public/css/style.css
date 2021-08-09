@@ -33,3 +33,7 @@ h1{
 .container.lorem p{
     background-color: grey;
 }
+
+.min-hauteur {
+    min-height: 720px;
+}

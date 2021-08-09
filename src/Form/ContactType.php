@@ -2,7 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,13 +17,17 @@ class ContactType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('message');
+            ->add('message', TextareaType::class)
+            //->add('documentATelecharger', FileType::class)
+            ->add('mail', EmailType::class)
+            ->add('telephone')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'data_class' => Contact::class,
         ]);
     }
 }

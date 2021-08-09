@@ -13,8 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class WishController extends AbstractController
 {
+    //*****************- 1 page liste qui affichera la liste des choses à faire - ******************************************
 
-    // 1 page liste qui affichera la liste des choses à faire
     /**
      * @Route("/list", name="list")
      */
@@ -23,26 +23,25 @@ class WishController extends AbstractController
         return $this->render('wish/list.html.twig');
     }
 
+    //*****************- 1 page détail qui affichera les détails sur une idée de chose à faire - ******************************************
 
-    // 1 page détail qui affichera les détails sur une idée de chose à faire
     /**
-     * @Route("/detail", name="detail")
+     * @Route("/detail/{id}", name="detail")
      */
-    public function detail(): Response
+    public function detail(Wish $w): Response
     {
-        return $this->render('wish/detail.html.twig');
+        //dd($w);
+        return $this->render('wish/detail.html.twig', ['wish' => $w]);
     }
 
-    // ajout d'un voeux
+    //*****************- Ajouter un voeux - ******************************************
     /**
      * @Route("/ajouter", name="wish_ajouter")
      */
-
-
     public function ajouter(EntityManagerInterface $em, Request $request): Response
 
-    {                
-        
+    {
+
         //j'instancie le formulaire en créant une entité vide et un formulaire
         $wish = new Wish();
         //je relie le formulaire à wish
@@ -50,8 +49,7 @@ class WishController extends AbstractController
         // grace à handle request il hydrate automatiquement wish
         $formWish->handleRequest($request);
 
-        if($formWish->isSubmitted() && $formWish->isValid())
-        {
+        if ($formWish->isSubmitted() && $formWish->isValid()) {
             $em->persist($wish);
             $em->flush();
 
@@ -85,7 +83,7 @@ class WishController extends AbstractController
     }
 
 
-    // Suppression d'un voeux
+    //*****************- Suppression d'un voeux - ******************************************
     /**
      * @Route("/enlever/{id}", name="wish_enlever")
      */

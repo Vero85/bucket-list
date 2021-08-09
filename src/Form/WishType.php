@@ -42,6 +42,11 @@ class WishType extends AbstractType
                 'widget' => 'single_text',
 
             ])
+            ->add('categorie', null, [
+                'choice_label' => 'name'
+            ])
+
+            
             /*
                     ->add('title')
                     ->add('description')

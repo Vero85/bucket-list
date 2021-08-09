@@ -6,6 +6,12 @@
 {# avec parent je récupère le contenu du blc parent #}
 
 
-{% block central%}
+{% block body%}
     <h1>Détail</h1>
+
+    <h2>{{wish.title}}</h2>
+    <p> Description : {{wish.description}}</p>
+    <p>Auteur : {{wish.author}} </p>
+    <p>Date de création : {{wish.dateCreated|date('d/m/Y')}} </p>
+
 {% endblock %}
